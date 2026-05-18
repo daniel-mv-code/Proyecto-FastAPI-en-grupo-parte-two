@@ -3,7 +3,13 @@ from typing import Optional, List
 # Importamos los modelos formales desde nuestro nuevo archivo
 from models import ClienteModel, VehiculoModel, RepuestoModel, MecanicoModel
 
-app = FastAPI(title="Sistema de Diagnóstico Automotriz PRO")
+@app.get("/", tags=["Inicio"])
+def inicio():
+    return {
+        "status": "online",
+        "proyecto": "Sistema de Diagnóstico Automotriz PRO",
+        "mensaje": "Bienvenidos a la API de gestión del taller - Desarrollado en Grupo"
+    }
 
 # --- BASE DE DATOS EN MEMORIA ---
 clientes = [
